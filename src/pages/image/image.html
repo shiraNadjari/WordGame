@@ -6,7 +6,9 @@
 -->
 <ion-header>
   <ion-navbar>
-      <a class="item item-icon-right"> <ion-icon name="home" class="iconhome" (click)="goHome()"></ion-icon></a>
+      <a class="item item-icon-right"> 
+        <ion-icon name="home" class="iconhome" (click)="goHome($event)"></ion-icon>
+      </a>
     <ion-title>image</ion-title>
     
   </ion-navbar>
@@ -15,8 +17,8 @@
 
 <ion-content padding>
 
-<ion-icon name="arrow-back" class="arrow" (click)="goback()"></ion-icon >
-<img src="img" class="imgcss">
+<ion-icon *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
+<img src="img.image" class="imgcss">
 <!-- <ion-icon name="heart"></ion-icon>                    -->
-<ion-icon name="arrow-forward" class="arrow"  (click)="goforward()"></ion-icon>
+<ion-icon *ngIf="arrowf" name="arrow-forward" class="arrow"  (click)="goforward()"></ion-icon>
 </ion-content>

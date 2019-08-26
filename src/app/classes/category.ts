@@ -22,5 +22,5 @@ export const categories: category[] = [
     new category( "clothes",3, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
     new category( "weather",4, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
     new category( "weather",5, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
-    new category( "weather",6, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg")
+    new category( "weather",6, "shorturl.at/doEJ4")
 ];

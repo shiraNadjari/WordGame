@@ -22,10 +22,10 @@ imeges=categories;//paginig 10 at a time
     this.categoryname=navParams.get('blabla');
 
   }
-  navtoimage(event,item:string){
+  navtoimage(event,item:string,idImage){
     debugger;
     //item=//we need category name
-    this.navCtrl.push(ImagePage,{blabla:item}); 
+    this.navCtrl.push(ImagePage,{idimage:idImage}); 
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryimagesPage');

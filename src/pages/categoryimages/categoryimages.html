@@ -6,17 +6,17 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>categoryimages</ion-title>
+    <ion-title class="ion-text-center">{{categoryname}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 <div >
-{{categoryname}}
+
 </div>
 
 <div *ngFor="let item of imeges">
-    <ion-img  [src]=item.image (click)='navtoimage($event,"animals")'> </ion-img>
+    <ion-img  [src]=item.image (click)='navtoimage($event,"animals",item.catId)' class="imgsize"> </ion-img>
     <!-- <b>{{item.catName}}</b> -->
 </div>
 </ion-content>
