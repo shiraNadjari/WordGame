@@ -11,9 +11,11 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let item of items">
-    <b>{{item.catName}}</b>
-   <ion-img  [src]=item.image (click)='itemTapped($event,"animals")'> </ion-img>
+  <div *ngFor="let item of items" class="imgText"> 
+   
+    <p> </p>
+      <ion-img height="200 px" width="200 px"  [src]=item.image (click)='itemTapped($event,"animals")' class="imgdisplay"> </ion-img>
+      <div class="displaytext">{{item.catName}}</div>
+      <!-- &nbsp; -->
 </div>
-
 </ion-content>

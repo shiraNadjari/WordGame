@@ -26,6 +26,7 @@ items=categories;
   }
  itemTapped(event,item:string){
    debugger;
+   //item=//we need category name
  this.navCtrl.push(CategoryimagesPage,{blabla:item}); 
 }
 }

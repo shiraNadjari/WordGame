@@ -8,13 +8,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CategoryPage } from '../pages/category/category';
 import { CategoryimagesPage } from '../pages/categoryimages/categoryimages';
+import{ImagePage}from'../pages/image/image';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,CategoryPage
-    ,CategoryimagesPage
+    ,CategoryimagesPage,ImagePage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,7 @@ import { CategoryimagesPage } from '../pages/categoryimages/categoryimages';
     MyApp,
     HomePage,
     CategoryPage
-    ,CategoryimagesPage
+    ,CategoryimagesPage,ImagePage
   ],
   providers: [
     StatusBar,

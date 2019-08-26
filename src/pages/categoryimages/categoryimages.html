@@ -12,6 +12,11 @@
 
 <ion-content padding>
 <div >
+{{categoryname}}
+</div>
 
+<div *ngFor="let item of imeges">
+    <ion-img  [src]=item.image (click)='navtoimage($event,"animals")'> </ion-img>
+    <!-- <b>{{item.catName}}</b> -->
 </div>
 </ion-content>
