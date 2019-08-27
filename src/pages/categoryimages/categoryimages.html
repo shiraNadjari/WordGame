@@ -21,5 +21,13 @@
 </div>
 <!-- <button ion-button color="light" size="small" >{{currentPage}}</button>
 <button ion-button color="light" size="small">{{NumofPages}}</button> -->
-<a>prev</a> <div *ngIf="arrPages"><a  *ngFor="let ind of arrPages"> {{ind}} </a></div>  <a>next</a>
+<a (click)="prevPage()" *ngIf="currentPage!=1">prev</a> <div *ngIf="arrPages" >
+  <a >1</a>
+  <p *ngIf="currentPage!=2">..</p>
+  <a *ngIf="currentPage != 1" > {{currentPage}}</a>
+  <p *ngIf="NumofPages-currentPage!=1&& NumofPages-currentPage!=0">..</p>
+  <a  *ngIf="currentPage != NumofPages">{{NumofPages}}</a>
+  <!-- <a  *ngFor="let ind of arrPages" [ngClass]='{"classPage":ind==currentPage}' >{{ind}} </a> -->
+</div> 
+<a (click)="nextPage()" *ngIf="currentPage!=NumofPages">next</a>
 </ion-content>

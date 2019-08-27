@@ -32,6 +32,12 @@ arrPages=[];
     this.arrPages[index]=index;
   }
   }
+  prevPage(){
+this.currentPage=this.currentPage-1;
+  }
+ nextPage(){
+  this.currentPage=this.currentPage+1;
+  }
   navtoimage(event,item:image){//send image id to image page and opens the page
     debugger;
     //item=//we need category name
