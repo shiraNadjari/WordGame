@@ -2,6 +2,7 @@ import {CategoryPage}from'../../pages/category/category';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{categories}from'../../app/classes/category';
+import{ImagesProvider}from '../../providers/images-service/images-service';
 
 /**
  * Generated class for the ImagePage page.
@@ -21,9 +22,13 @@ img="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4
 ind=0;//image index in the array
 arrowb=false;// display arrow back 
 arrowf=true;//display arrow forth
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+categoryId: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider) {
     debugger;
-    this.ind=navParams.get('idimage')-1;//started with 0 gets the image id 
+    this.categoryId=navParams.get('categoryId');
+    this.ind=navParams.get('idimage')-1;//started with 0 gets the image id
+    //service call - 10 images lodaing 
+    servImage.getImagesByCategory(this.ind);
     this.img=this.images[this.ind];
   }
 goback(){//lets user go back to image before the current image
@@ -33,6 +38,7 @@ goback(){//lets user go back to image before the current image
   if(this.ind==0){
     this.arrowb=false;
     this.arrowf=true;
+    //iocon prev page service call
   }
   else{
     this.arrowb=true;
@@ -47,6 +53,8 @@ goforward(){// lets user go forward to next image from image array
   if(this.ind==this.images.length-1){
     this.arrowf=false;
     this.arrowb=true;
+    //iocon next page service call
+    
   }
   else{
     this.arrowb=true;

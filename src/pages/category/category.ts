@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoryimagesPage} from '../categoryimages/categoryimages';
-import { categories } from '../../app/classes/category';
+import { category,categories } from '../../app/classes/category';
+import{CategoriesServiceProvider}from '../../providers/categories-service/categories-service';
 
 /**
  * Generated class for the CategoryPage page.
@@ -17,16 +18,19 @@ import { categories } from '../../app/classes/category';
 })
 export class CategoryPage {
   debugger;
-items=categories;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+items=categories;//arr of caterories!
+  constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
+    debugger;
+    // this.servCategory.getcategories();
+    // this.items=this.servCategory.cateroriesArr;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryPage');
   }
- itemTapped(event,item:string){
+ itemTapped(event,item:category){
    debugger;
    //item=//we need category name
- this.navCtrl.push(CategoryimagesPage,{blabla:item}); 
+ this.navCtrl.push(CategoryimagesPage,{blabla:item,categoryId:item.CategoryId}); 
 }
 }

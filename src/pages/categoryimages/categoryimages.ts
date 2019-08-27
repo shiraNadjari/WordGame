@@ -16,16 +16,17 @@ import{ImagePage}from'../image/image';
   templateUrl: 'categoryimages.html',
 })
 export class CategoryimagesPage {
+categoryId: any;
 categoryname:any;
 imeges=categories;//paginig 10 at a time
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.categoryname=navParams.get('blabla');
-
+    this.categoryId=navParams.get('categoryId');
   }
   navtoimage(event,item:string,idImage){//send image id to image page and opens the page
     debugger;
     //item=//we need category name
-    this.navCtrl.push(ImagePage,{idimage:idImage}); 
+    this.navCtrl.push(ImagePage,{idimage:idImage,categoryId:this.categoryId}); 
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryimagesPage');

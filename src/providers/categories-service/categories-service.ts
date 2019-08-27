@@ -14,7 +14,7 @@ cateroriesArr:any;
     console.log('Hello CategoriesServiceProvider Provider');
   }
   getcategories(): any {
-    return this.http.get("http://localhost:60928/api/Categories/")
+    return this.http.get("http://localhost:52093/api/Categories/")
     .toPromise().then(
       res => { 
         this.cateroriesArr=res;
