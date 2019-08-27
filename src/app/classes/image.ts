@@ -1,16 +1,14 @@
 export class image{
-    public IMGId:number;
+    public ImageID:number;
     public URL:string;
-    public CategoryId: number;
+    public CategoryID: number;
    
-    
-
     
     constructor(Imgid: number, URL: string, categoryid: number) {
        
-        this.IMGId = Imgid;
+        this.ImageID = Imgid;
         this.URL = URL;
-        this.CategoryId = categoryid;
+        this.CategoryID = categoryid;
        
     }
 }

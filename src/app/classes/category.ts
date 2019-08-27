@@ -1,17 +1,17 @@
 //the new on D:
 export class category {
-    public catId:number;
-    public catName:string;
-    public image: string;
+    public CategoryId:number;
+    public CategoryName:string;
+    public ImageURL: string;
    
-    
-
-    
+    // public int CategoryId { get; set; }
+    //     public string CategoryName { get; set; }
+    //     public string ImageURL { get; set;
     constructor(cat_Name: string, cat_id: number, image: string) {
        
-        this.catId = cat_id;
-        this.catName = cat_Name;
-        this.image = image;
+        this.CategoryId = cat_id;
+        this.CategoryName = cat_Name;
+        this.ImageURL = image;
        
     }
 }
