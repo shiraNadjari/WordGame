@@ -13,7 +13,7 @@ imagesArr:any;
   constructor(public http: HttpClient) {
     console.log('Hello ImagesProvider Provider');
   }
-  getImagesByCategory(lab:number,categoryId:number): any {
+  getImagesByCategory(categoryId:number): any {
     return this.http.get("http://localhost:60928/api/Images?categoryId="+categoryId)
     .toPromise().then(
       res => { 

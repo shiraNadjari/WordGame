@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import{categories}from'../../app/classes/category';
+import{images, image}from'../../app/classes/image';
 import{ImagePage}from'../image/image';
 
 /**
@@ -16,16 +16,26 @@ import{ImagePage}from'../image/image';
   templateUrl: 'categoryimages.html',
 })
 export class CategoryimagesPage {
+categoryId: any;
 categoryname:any;
-imeges=categories;//paginig 10 at a time
+imeges=images;//paginig 10 at a time
+NumofPages:any;
+currentPage:any;
+arrPages=[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.categoryname=navParams.get('blabla');
-
+    debugger;
+    this.currentPage=1;//always begin with 1 page!
+    this.NumofPages=10;//service call-get number of pages per category
+    this.categoryname=navParams.get('categoryName');
+    this.categoryId=navParams.get('categoryId');
+  for (let index = 1; index <= 10; index++) {
+    this.arrPages[index]=index;
   }
-  navtoimage(event,item:string,idImage){//send image id to image page and opens the page
+  }
+  navtoimage(event,item:image){//send image id to image page and opens the page
     debugger;
     //item=//we need category name
-    this.navCtrl.push(ImagePage,{idimage:idImage}); 
+    this.navCtrl.push(ImagePage,{idimage:item.ImageID,categoryId:this.categoryId}); 
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryimagesPage');

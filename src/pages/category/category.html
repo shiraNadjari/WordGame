@@ -14,7 +14,7 @@
   <div *ngFor="let item of items" class="imgTxt"> 
    
     <ion-card class="Mycategory"> 
-      <ion-img   [src]=item.image (click)='itemTapped($event,"animals")' class="displayimg"> </ion-img>
+      <ion-img   [src]=item.ImageURL (click)='itemTapped($event,item)' class="displayimg"> </ion-img>
       <div class="displaytxt">{{item.catName}}</div>
     </ion-card>
 </div>

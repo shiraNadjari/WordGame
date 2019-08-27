@@ -16,7 +16,10 @@
 </div>
 
 <div *ngFor="let item of imeges">
-    <img  [src]=item.image (click)='navtoimage($event,"animals",item.catId)' class="imgsize"> 
+    <img  [src]=item.ImageURL (click)='navtoimage($event,item)' class="imgsize"> 
     <!-- <b>{{item.catName}}</b> -->
 </div>
+<!-- <button ion-button color="light" size="small" >{{currentPage}}</button>
+<button ion-button color="light" size="small">{{NumofPages}}</button> -->
+<a>prev</a> <div *ngIf="arrPages"><a  *ngFor="let ind of arrPages"> {{ind}} </a></div>  <a>next</a>
 </ion-content>
