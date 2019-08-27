@@ -28,8 +28,9 @@ import { CategoriesServiceProvider }from '../providers/categories-service/catego
   entryComponents: [
     MyApp,
     HomePage,
-    CategoryPage
-    ,CategoryimagesPage,ImagePage
+    CategoryPage,
+    CategoryimagesPage,
+    ImagePage
   ],
   providers: [
     StatusBar,

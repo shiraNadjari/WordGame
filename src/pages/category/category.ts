@@ -21,8 +21,8 @@ export class CategoryPage {
 items=categories;//arr of caterories!
   constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
     debugger;
-    // this.servCategory.getcategories();
-    // this.items=this.servCategory.cateroriesArr;
+    //service call
+   
   }
 
   ionViewDidLoad() {
@@ -31,6 +31,6 @@ items=categories;//arr of caterories!
  itemTapped(event,item:category){
    debugger;
    //item=//we need category name
- this.navCtrl.push(CategoryimagesPage,{blabla:item,categoryId:item.CategoryId}); 
+ this.navCtrl.push(CategoryimagesPage,{categoryName:item.CategoryName,categoryId:item.CategoryId}); 
 }
 }

@@ -1,7 +1,7 @@
 import {CategoryPage}from'../../pages/category/category';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import{categories}from'../../app/classes/category';
+import{images}from'../../app/classes/image';
 import{ImagesProvider}from '../../providers/images-service/images-service';
 
 /**
@@ -17,8 +17,8 @@ import{ImagesProvider}from '../../providers/images-service/images-service';
   templateUrl: 'image.html',
 })
 export class ImagePage {
-images:any=categories;//the image array for each category
-img="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4
+images:any=images;//the image array for each category
+img;//="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4
 ind=0;//image index in the array
 arrowb=false;// display arrow back 
 arrowf=true;//display arrow forth
@@ -28,8 +28,8 @@ categoryId: any;
     this.categoryId=navParams.get('categoryId');
     this.ind=navParams.get('idimage')-1;//started with 0 gets the image id
     //service call - 10 images lodaing 
-    servImage.getImagesByCategory(this.ind);
-    this.img=this.images[this.ind];
+    // servImage.getImagesByCategory(this.ind);
+     this.img=this.images[this.ind];
   }
 goback(){//lets user go back to image before the current image
 
