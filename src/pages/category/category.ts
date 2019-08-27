@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoryimagesPage} from '../categoryimages/categoryimages';
 import { categories } from '../../app/classes/category';
-
+import {CategoriesServiceProvider} from '../../providers/categories-service/categories-service'
 /**
  * Generated class for the CategoryPage page.
  *
@@ -18,8 +18,11 @@ import { categories } from '../../app/classes/category';
 export class CategoryPage {
   debugger;
 items=categories;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public serv:CategoriesServiceProvider) {
+   debugger;
+    var res=serv.getcategories();
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryPage');
