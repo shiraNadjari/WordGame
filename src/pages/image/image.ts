@@ -19,7 +19,7 @@ export class ImagePage {
 images:any=categories;//the image array for each category
 img="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4
 ind=0;//image index in the array
-arrowb=true;// display arrow back 
+arrowb=false;// display arrow back 
 arrowf=true;//display arrow forth
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     debugger;

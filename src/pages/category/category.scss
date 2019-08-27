@@ -1,27 +1,28 @@
 // page-category {
 
 // }
-// b{
-//     font-size: 50px;
-// }
-// ion-img{
-//     size: 200px;
-//     border: black;
-// }
-.imgText{
+.imgTxt{
 // size: 1000px;
-width: 50px;
-height: 50px;
-
+width: 200;
+height: 200;
+align-content: center;
+text-align: center;
 // background-color: aqua;
 }
-.imgdisplay{
-    // size: 500px;
+.displayimg{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 70px;
+    height:70px;
 }
-.displaytext{
+.displaytxt{
     //  background-color: rgba(250, 160, 160, 0.5);
      background-color: transparent;
+
+}
+.Mycategory{
+    //put text ontop of image
+    position:relative;
+
 }

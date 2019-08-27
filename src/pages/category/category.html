@@ -11,11 +11,11 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let item of items" class="imgText"> 
+  <div *ngFor="let item of items" class="imgTxt"> 
    
-    <p> </p>
-      <ion-img   [src]=item.image (click)='itemTapped($event,"animals")' class="imgdisplay"> </ion-img>
-      <div class="displaytext">{{item.catName}}</div>
-      <!-- &nbsp; -->
+    <ion-card class="Mycategory"> 
+      <ion-img   [src]=item.image (click)='itemTapped($event,"animals")' class="displayimg"> </ion-img>
+      <div class="displaytxt">{{item.catName}}</div>
+    </ion-card>
 </div>
 </ion-content>

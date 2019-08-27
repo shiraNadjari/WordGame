@@ -9,23 +9,18 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class CategoriesServiceProvider {
-
+cateroriesArr:any;
   constructor(public http: HttpClient) {
     console.log('Hello CategoriesServiceProvider Provider');
   }
-  getcategories(lab:number,password:string): any {
-    return this.http.get("http://localhost:60928/api/categories/")
+  getcategories(): any {
+    return this.http.get("http://localhost:60928/api/Categories/")
     .toPromise().then(
-      res => { return res; })
+      res => { 
+        this.cateroriesArr=res;
+        return res;
+       })
       .catch(err => { return false;})
-  
   }
 
-getImagesByCategory(lab:number,password:string): any {
-    return this.http.get("http://localhost:60928/api/categories/")
-    .toPromise().then(
-      res => { return res; })
-      .catch(err => { return false;})
-  
-  }
 }

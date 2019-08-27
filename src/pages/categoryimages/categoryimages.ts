@@ -22,7 +22,7 @@ imeges=categories;//paginig 10 at a time
     this.categoryname=navParams.get('blabla');
 
   }
-  navtoimage(event,item:string,idImage){
+  navtoimage(event,item:string,idImage){//send image id to image page and opens the page
     debugger;
     //item=//we need category name
     this.navCtrl.push(ImagePage,{idimage:idImage}); 

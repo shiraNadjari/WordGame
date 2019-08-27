@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { CategoryPage } from '../pages/category/category';
 import { CategoryimagesPage } from '../pages/categoryimages/categoryimages';
 import{ImagePage}from'../pages/image/image';
+import { ImagesProvider } from '../providers/images/images';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import{ImagePage}from'../pages/image/image';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ImagesProvider
   ]
 })
 export class AppModule {}

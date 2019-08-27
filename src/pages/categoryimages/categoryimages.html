@@ -16,7 +16,7 @@
 </div>
 
 <div *ngFor="let item of imeges">
-    <ion-img  [src]=item.image (click)='navtoimage($event,"animals",item.catId)' class="imgsize"> </ion-img>
+    <img  [src]=item.image (click)='navtoimage($event,"animals",item.catId)' class="imgsize"> 
     <!-- <b>{{item.catName}}</b> -->
 </div>
 </ion-content>

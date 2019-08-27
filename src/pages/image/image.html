@@ -18,7 +18,7 @@
 <ion-content padding>
 
 <ion-icon *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
-<img src="img.image" class="imgcss">
+<img [src]=img.image class="imgcss">
 <!-- <ion-icon name="heart"></ion-icon>                    -->
 <ion-icon *ngIf="arrowf" name="arrow-forward" class="arrow"  (click)="goforward()"></ion-icon>
 </ion-content>
