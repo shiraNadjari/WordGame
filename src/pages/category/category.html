@@ -11,11 +11,37 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let item of items" class="imgTxt"> 
+
+
+ <ion-grid>
+   <ion-row>
+     <ion-col>
+
+        <div *ngFor="let item of items" class="imgTxt">
+            <ion-card class="Mycategory"> 
+              <ion-img   [src]=item.ImageURL (click)='itemTapped($event,item)' class="displayimg"> </ion-img>
+              <div class="displaytxt">{{item.CategoryName}}</div>
+            </ion-card>
+            </div>
+        
+            <ion-card class="MyPix"> 
+              <ion-icon name="add" class ="displayimgs"></ion-icon>
+            </ion-card>
+
+     </ion-col>
+   </ion-row>
+ </ion-grid>
    
+    <!-- <div *ngFor="let item of items" class="imgTxt">
     <ion-card class="Mycategory"> 
       <ion-img   [src]=item.ImageURL (click)='itemTapped($event,item)' class="displayimg"> </ion-img>
-      <div class="displaytxt">{{item.catName}}</div>
+      <div class="displaytxt">{{item.CategoryName}}</div>
     </ion-card>
-</div>
+    </div>
+
+    <ion-card class="MyPix"> 
+      <ion-icon name="add" class ="displayimgs"></ion-icon>
+    </ion-card>
+ -->
+
 </ion-content>
