@@ -1,6 +1,6 @@
 import {CategoryPage}from'../../pages/category/category';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
 import{images}from'../../app/classes/image';
 import{ImagesProvider}from '../../providers/images-service/images-service';
 
@@ -16,20 +16,30 @@ import{ImagesProvider}from '../../providers/images-service/images-service';
   selector: 'page-image',
   templateUrl: 'image.html',
 })
+
 export class ImagePage {
 images:any=images;//the image array for each category
 img;//="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4
 ind=0;//image index in the array
 arrowb=false;// display arrow back 
 arrowf=true;//display arrow forth
+heigtscreen:any;
+widthscreen:any;
 categoryId: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider) {
+  yScreen: number;
+  xScreen:number;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider,platform:Platform) {
     debugger;
     this.categoryId=navParams.get('categoryId');
     this.ind=navParams.get('idimage')-1;//started with 0 gets the image id
     //service call - 10 images lodaing 
     // servImage.getImagesByCategory(this.ind);
      this.img=this.images[this.ind];
+     this.heigtscreen=platform.height();
+     this.widthscreen=platform.width();
+    
   }
 goback(){//lets user go back to image before the current image
 
@@ -47,6 +57,24 @@ goback(){//lets user go back to image before the current image
   }
   this.img=this.images[this.ind];
 }
+x:number;
+y:number;
+elementinfo:any;
+b:any;
+findObject(event){
+  debugger;
+  console.log;
+  this.x=event.clientX;//the click position that the user  made-x
+  this.y=event.clientY;//" y
+   this.elementinfo=document.getElementById("image").getBoundingClientRect();
+  this.yScreen =this.heigtscreen-  this.elementinfo.bottom;
+  this.xScreen =this.widthscreen-  this.elementinfo.left;
+  this.x-=this.xScreen;
+  this.y-=this.yScreen;
+///
+  
+}
+
 goforward(){// lets user go forward to next image from image array
   debugger;
   this.ind=this.ind+1;
@@ -67,6 +95,8 @@ goforward(){// lets user go forward to next image from image array
 
 goHome(event){//go to home page where u can choose again a category and start to play again...............
 debugger;
+this.x=event.clientX;
+  this.y=event.clientY;
 this.navCtrl.push(CategoryPage,{});
 }
   ionViewDidLoad() {
