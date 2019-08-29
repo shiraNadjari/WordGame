@@ -21,8 +21,9 @@ export class CategoryPage {
   items=categories;//arr of caterories!
   constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
     debugger;
-    //service call
+    //service call to get all categories
    //this.items=servCategory.getcategories();
+   
   }
 
   ionViewDidLoad() {

@@ -21,13 +21,18 @@
 </div>
 <!-- <button ion-button color="light" size="small" >{{currentPage}}</button>
 <button ion-button color="light" size="small">{{NumofPages}}</button> -->
-<a (click)="prevPage()" *ngIf="currentPage!=1">prev</a> <div *ngIf="arrPages" >
-  <a >1</a><ion-row style="height: h"></ion-row>
-  <p *ngIf="currentPage!=2">..</p>
-  <a *ngIf="currentPage != 1" > {{currentPage}}</a>
-  <p *ngIf="NumofPages-currentPage!=1&& NumofPages-currentPage!=0">..</p>
-  <a  *ngIf="currentPage != NumofPages">{{NumofPages}}</a>
-  <!-- <a  *ngFor="let ind of arrPages" [ngClass]='{"classPage":ind==currentPage}' >{{ind}} </a> -->
+<p (click)="nextPage(currentPage-1)" *ngIf="currentPage!=1">prev</p> 
+<div *ngIf="arrPages" >
+
+  <p *ngIf="currentPage!=1">1</p>
+    <!-- <ion-row style="height: h"></ion-row> -->
+  <p *ngIf="currentPage!=1&&currentPage!=2" >...</p>
+  <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" [ngClass]="'classCurrent':item==currentPage">item</p>
+  <p *ngIf="currentPage!=NumofPages&&currentPage!=NumofPages-1" >...</p>
+  <p  (click)="nextPage(NumofPages)" *ngIf="currentPage != NumofPages">{{NumofPages}}</p>
 </div> 
-<a (click)="nextPage()" *ngIf="currentPage!=NumofPages">next</a>
+
+
+
+<p (click)="nextPage(currentPage+1)" *ngIf="currentPage!=NumofPages">next</p>
 </ion-content>
