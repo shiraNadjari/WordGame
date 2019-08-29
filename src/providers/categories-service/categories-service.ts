@@ -13,6 +13,15 @@ cateroriesArr:any;
   constructor(public http: HttpClient) {
     console.log('Hello CategoriesServiceProvider Provider');
   }
+
+//get num pages of this category-by category id 
+  getNumPageByCategoryId(categoryId:number): any {
+    return this.http.get("http://localhost:52093/api/Categories/"+categoryId).toPromise().then(
+      res => { return res;})
+      .catch(err => { return false;})
+  }
+
+  // get all the categories 
   getcategories(): any {
     return this.http.get("http://localhost:52093/api/Categories/")
     .toPromise().then(
