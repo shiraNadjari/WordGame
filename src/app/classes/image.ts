@@ -19,7 +19,5 @@ export const images: image[] = [
     new image(1, "https://www.rami-levy.co.il/files/products/big/97.jpg",2,1,3),
     new image(2, "https://www.rami-levy.co.il/files/products/big/97.jpg",2,1,3),
     new image(3, "https://www.rami-levy.co.il/files/products/big/97.jpg",2,1,3),
-    new image(4, "https://www.rami-levy.co.il/files/products/big/97.jpg",2,1,3),
-    new image(5, "https://www.rami-levy.co.il/files/products/big/97.jpg",2,1,3),
-    new image(6, "https://www.rami-levy.co.il/files/products/big/97.jpg",2,1,3)
+  
 ];
