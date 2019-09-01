@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
 import{imageWithObject}from'../../app/classes/imageWithObject';
 import{ImagesProvider}from '../../providers/images-service/images-service';
-
+import { NativeAudio } from '@ionic-native/native-audio';
 /**
  * Generated class for the ImagePage page.
  *
@@ -29,7 +29,7 @@ categoryId: any;
 yScreen: number;
 xScreen:number;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider,platform:Platform) {
+  constructor(private audio:NativeAudio, public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider,platform:Platform) {
     debugger;
     this.categoryId=navParams.get('categoryId');
     this.ind=navParams.get('idimage')-1;//started with 0 gets the image id
@@ -42,6 +42,11 @@ xScreen:number;
      this.widthscreen=platform.width();
     
   }
+  playobject()
+    {
+      this.audio.preloadSimple('uniqueId1', 'path/to/file.mp3').then(onSuccess, onError);
+    }
+  
 goback(){//lets user go back to image before the current image
 
   debugger;
@@ -72,7 +77,7 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
     &&this.x<=OneObject.X3&&this.y<=OneObject.Y3
     &&this.x>=OneObject.X1&&this.y<=OneObject.Y4)
     {
-      
+      //TextToSpeach
     }
 } 
 }
@@ -86,6 +91,7 @@ findclickcoordinants(event){
   this.xScreen =this.widthscreen-  this.elementinfo.left;
   this.x-=this.xScreen;
   this.y-=this.yScreen;
+  ///find vision coordinates
   this.findobject();
 }
 

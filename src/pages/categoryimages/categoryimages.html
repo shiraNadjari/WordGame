@@ -28,11 +28,10 @@
     <!-- <ion-row style="height: h"></ion-row> -->
   <p *ngIf="currentPage!=1&&currentPage!=2" >...</p>
   <!-- <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" [ngClass]="'classCurrent':item==currentPage">item</p> -->
-  <p *ngIf="currentPage!=NumofPages&&currentPage!=NumofPages-1" >...</p>
-  <p  (click)="nextPage(NumofPages)" *ngIf="currentPage != NumofPages">{{NumofPages}}</p>
+  <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" >{{item}}</p> 
+  <p *ngIf="display==true" >...</p>
+  <p  (click)="nextPage(NumofPages)" *ngIf="display==true">{{NumofPages}}</p>
 </div> 
-
-
 
 <p (click)="nextPage(currentPage+1)" *ngIf="currentPage!=NumofPages">next</p>
 </ion-content>

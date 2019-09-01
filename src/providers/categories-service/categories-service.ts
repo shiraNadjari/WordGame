@@ -27,6 +27,7 @@ cateroriesArr:any;
     .toPromise().then(
       res => { 
         this.cateroriesArr=res;
+        console.log(res);
         return res;
        })
       .catch(err => { return false;})

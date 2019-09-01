@@ -20,15 +20,31 @@ import{CategoriesServiceProvider}from '../../providers/categories-service/catego
 })
 export class CategoryPage {
   debugger;
-  items=categories;//arr of caterories!
+  items//arr of caterories!
   constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
     debugger;
-    //service call to get all categories
-   //this.items=servCategory.getcategories();
-   
+    //service call to get all categories 
+    
+    this.getCategories();
   }
 
+   resolveAfter4Seconds() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(
+          this.servCategory.getcategories().then(data => {
+            this.items = data;
+            console.log(this.items);
+          })
+        );
+      }, 4000);
+    });
+  }
 
+  async getCategories() {
+    var x = await this.resolveAfter4Seconds();
+    this.items = this.items;
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryPage');
   }

@@ -1,5 +1,7 @@
 {
   "name": "wordproject",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
