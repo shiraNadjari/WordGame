@@ -20,7 +20,7 @@ import{CategoriesServiceProvider}from '../../providers/categories-service/catego
 })
 export class CategoryPage {
   debugger;
-  items//arr of caterories!
+  items=categories//arr of caterories!
   constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
     debugger;
     //service call to get all categories 

@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
 import{imageWithObject}from'../../app/classes/imageWithObject';
 import{ImagesProvider}from '../../providers/images-service/images-service';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { imageObject } from '../../app/classes/Object';
+// import{}from '../../voice/horse.mp3'
 /**
  * Generated class for the ImagePage page.
  *
@@ -42,10 +44,29 @@ xScreen:number;
      this.widthscreen=platform.width();
     
   }
-  playobject()
-    {
-      this.audio.preloadSimple('uniqueId1', 'path/to/file.mp3').then(onSuccess, onError);
-    }
+playobject()
+{
+  //MyObj.filevoice.mp3  MyObj:imageObject
+  debugger;
+  // "C:\Users\User\Downloads\horse.mp3"
+  this.audio.preloadComplex('uniqueId1', '../../voice/horse.mp3',1,1,0).
+  then(function(){
+    console.log("audio loded!!");},function(err){
+      debugger;
+      console.log("failed!!!!  "+err);
+    });
+  //   this.onSuccess, this.onError);
+  // // console.log(Error);
+  // // this.audio.preloadSimple('uniqueId1', 'path/to/file.mp3').then(onSuccess, onError);
+  // this.audio.play('uniqueId1').then(this.onSuccess, this.onError);
+
+}
+onSuccess() {
+  console.log('success!!!!!! wow!');
+}
+onError(){
+  console.log('faild??!');
+}
   
 goback(){//lets user go back to image before the current image
 
@@ -68,7 +89,6 @@ y:number;
 elementinfo:any;
 b:any; 
 findobject(){
-  
 for (let index = 0; index < this.img.imageObjects.length; index++) {
   const OneObject = this.img.imageObjects[index]; 
   //checks if the click is in the range of the current object is 
@@ -78,6 +98,7 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
     &&this.x>=OneObject.X1&&this.y<=OneObject.Y4)
     {
       //TextToSpeach
+      this.playobject();
     }
 } 
 }

@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CategoryPage } from '../pages/category/category';
 import { CategoryimagesPage } from '../pages/categoryimages/categoryimages';
+import { NativeAudio } from '@ionic-native/native-audio';
 
 
 import { ImagePage } from'../pages/image/image';
@@ -37,6 +38,7 @@ import { CategoriesServiceProvider }from '../providers/categories-service/catego
   providers: [
     StatusBar,
     SplashScreen,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
     ImagesProvider,
