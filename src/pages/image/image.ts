@@ -1,7 +1,7 @@
 import {CategoryPage}from'../../pages/category/category';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
-import{imageWithObject}from'../../app/classes/imageWithObject';
+import{imageWithObject, arrobj, oneImageObj}from'../../app/classes/imageWithObject';
 import{ImagesProvider}from '../../providers/images-service/images-service';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { imageObject } from '../../app/classes/Object';
@@ -21,7 +21,7 @@ import { imageObject } from '../../app/classes/Object';
 
 export class ImagePage {
 images:any=imageWithObject;//the image array for each category
-img;//="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4
+img=oneImageObj;//="https://bit.ly/2MDc4b4";//shorturl.at/doEJ4//service call insert image obj...
 ind=0;//image index in the array
 arrowb=false;// display arrow back 
 arrowf=true;//display arrow forth
@@ -37,9 +37,10 @@ xScreen:number;
     this.ind=navParams.get('idimage')-1;//started with 0 gets the image id
     //service call - 10 images lodaing 
     // servImage.getImagesByCategory(this.ind);
+    
     //the ten images that are currently in the system
     // this.images=servImage.imagesArr;
-     this.img=this.images[this.ind];
+     //this.img=this.images[this.ind];
      this.heigtscreen=platform.height();
      this.widthscreen=platform.width();
     
@@ -49,6 +50,12 @@ playobject()
   //MyObj.filevoice.mp3  MyObj:imageObject
   debugger;
   // "C:\Users\User\Downloads\horse.mp3"
+  this.audio.preloadSimple('uniqueId1', '../../voice/horse.mp3').
+  then(function(){
+    console.log("audio loded!!");},function(err){
+      debugger;
+      console.log("failed!!!!  "+err);
+    });
   this.audio.preloadComplex('uniqueId1', '../../voice/horse.mp3',1,1,0).
   then(function(){
     console.log("audio loded!!");},function(err){
@@ -82,7 +89,7 @@ goback(){//lets user go back to image before the current image
     this.arrowf=true;
 
   }
-  this.img=this.images[this.ind];
+ // this.img=this.images[this.ind];
 }
 x:number;
 y:number;
@@ -113,7 +120,7 @@ findclickcoordinants(event){
   this.x-=this.xScreen;
   this.y-=this.yScreen;
   ///find vision coordinates
-  this.findobject();
+ // this.findobject();
 }
 
 goforward(){// lets user go forward to next image from image array
@@ -129,10 +136,8 @@ goforward(){// lets user go forward to next image from image array
     this.arrowb=true;
     this.arrowf=true;
   }
-  this.img=this.images[this.ind];
+ // this.img=this.images[this.ind];
 }
-
-
 
 goHome(event){//go to home page where u can choose again a category and start to play again...............
 debugger;

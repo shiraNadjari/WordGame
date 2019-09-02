@@ -16,22 +16,28 @@
 </div>
 
 <div *ngFor="let item of imagesArr">
-    <img  [src]=item.URL (click)='navtoimage($event,item)' class="imgsize"> 
+    <img  [src]=item.COMimage.URL (click)='navtoimage($event,item)' class="imgsize"> 
     <!-- <b>{{item.catName}}</b> -->
 </div>
 <!-- <button ion-button color="light" size="small" >{{currentPage}}</button>
 <button ion-button color="light" size="small">{{NumofPages}}</button> -->
+<div   style="display: inline">
 <p (click)="nextPage(currentPage-1)" *ngIf="currentPage!=1">prev</p> 
-<div *ngIf="arrPages" >
 
+<div *ngIf="arrPages" class="numbersPage">
+  
   <p *ngIf="currentPage!=1">1</p>
+ 
     <!-- <ion-row style="height: h"></ion-row> -->
   <p *ngIf="currentPage!=1&&currentPage!=2" >...</p>
+  <!-- <p *ngIf="displayCurr">{{currentPage}}</p> -->
+
   <!-- <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" [ngClass]="'classCurrent':item==currentPage">item</p> -->
   <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" >{{item}}</p> 
-  <p *ngIf="display==true" >...</p>
-  <p  (click)="nextPage(NumofPages)" *ngIf="display==true">{{NumofPages}}</p>
+  <p *ngIf="display==true&&last==true" >...</p>
+  <p  (click)="nextPage(NumofPages)" *ngIf="last==true">{{NumofPages}}</p>
 </div> 
 
 <p (click)="nextPage(currentPage+1)" *ngIf="currentPage!=NumofPages">next</p>
+</div>
 </ion-content>

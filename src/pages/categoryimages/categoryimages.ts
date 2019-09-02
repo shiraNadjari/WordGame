@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{images, image}from'../../app/classes/image';
-import{arrobj}from'../../app/classes/imageWithObject';
+import{arrobj, imageWithObject}from'../../app/classes/imageWithObject';
 import{ImagePage}from'../image/image';
 import { CategoriesServiceProvider } from '../../providers/categories-service/categories-service';
 import { ImagesProvider } from '../../providers/images-service/images-service';
@@ -21,12 +21,14 @@ import { ImagesProvider } from '../../providers/images-service/images-service';
 export class CategoryimagesPage {
 categoryId: any;
 categoryname:any;
+last:boolean=true;
 imagesArr=arrobj//paginig 10 at a time
 imagesArrLoad;
 NumofPages:any;
 NumofPagesLoaded:any;
 currentPage:any;
 arrPages=[];
+displayCurr:boolean=true;
 display: boolean=true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider,
@@ -41,26 +43,54 @@ display: boolean=true;
     this.currentPage=1;//always begin with 1 page!
     // enter the current images in this page
    // this.getimages();
-
   this.ArrayPage();
   }
-  ArrayPage() {
+
+ArrayPage() {
     //to display on the bottom the current page & prev- next
     debugger;
-    if(this.currentPage+4<this.NumofPages)
-    {
-
+  if(this.currentPage+4 < this.NumofPages)//need to change the array value
+ {
   for (let index = this.currentPage+1,i=0; index <= this.currentPage+4 && index<=this.NumofPages; index++,i++) {
-    this.arrPages[i]=index;
+    this.arrPages[i]=index;//to display this pages
+
+    if(this.arrPages[i]==this.NumofPages){//checks if to display last number only if last num isn't in the array
+      this.last=false;
+      }
+    if(this.currentPage=this.NumofPages-1)
+    {
+      this.display=false;
+    }
   } 
   debugger;
-  if(this.NumofPages-4 <= this.currentPage)
- 
-    this.display=false;
- else{
-    this.display=true;
-  }
+//   if(this.NumofPages-4 <= this.currentPage)
+//     this.display=false;
+//  else{
+    
+    this.displayCurr=true;
+// }
 }
+else{
+  this.display=false;
+  this.displayCurr=false;
+  for (let index = this.NumofPages-4,i=0; index <= this.NumofPages && index<=this.NumofPages; index++,i++) {
+    this.arrPages[i]=index;//to display this pages
+  } 
+}
+this.checkIfNumPageInArray();
+// if(this.currentPage+5=this.NumofPages)
+
+}
+checkIfNumPageInArray() {
+   for (let i = 0; i < this.arrPages.length; i++) {
+     if(this.arrPages[i]==this.NumofPages){
+       this.display=false;
+       if(this.arrPages[i]==this.NumofPages){
+       this.last=false;
+       }
+     }
+     
+   }
 }
   resolveAfter4SecondsNumPages() {
     return new Promise(resolve => {
@@ -82,6 +112,7 @@ display: boolean=true;
     this.NumofPages = this.NumofPagesLoaded+1;
     //cancel after
     this.NumofPages=10;
+    this.ArrayPage();//the numbers pages
   }
 
   resolveAfter4Secondsimages() {
@@ -121,10 +152,10 @@ GetImagesPage(NumPage:number){
   this.ArrayPage();
   }
 
-  navtoimage(event,item:image){//send image id to image page and opens the page
+  navtoimage(event,item:imageWithObject){//send image id to image page and opens the page
     debugger;
     //item=//we need category name
-    this.navCtrl.push(ImagePage,{idimage:item.ImageID,categoryId:this.categoryId}); 
+    this.navCtrl.push(ImagePage,{idimage:item.COMimage.ImageID,categoryId:this.categoryId}); 
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryimagesPage');

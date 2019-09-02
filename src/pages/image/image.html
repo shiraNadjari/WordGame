@@ -18,9 +18,11 @@
 <ion-content padding class="ImagePage">
 
 <ion-icon *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
-<!-- <ion-img id="image" [src]=img.URL class="imgcss" (click)="findclickcoordinants($event)"></ion-img> -->
+<ion-img *ngIf="img" id="image" [src]=img.COMimage.URL class="imgcss" (click)="findclickcoordinants($event)"></ion-img>
+
 <!-- <ion-icon name="heart"></ion-icon>-->
-<button (click)="playobject()">here me!!!</button>
+<!-- <button (click)="playobject()">here me!!!</button> -->
+
 <ion-icon *ngIf="arrowf" name="arrow-forward" class="arrow"  (click)="goforward()"></ion-icon>
 <!-- <audio [src]='horse.mp3' type="">  
 
