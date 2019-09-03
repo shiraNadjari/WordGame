@@ -22,7 +22,7 @@ export class CategoryimagesPage {
 categoryId: any;
 categoryname:any;
 last:boolean=true;
-imagesArr=arrobj//paginig 10 at a time
+imagesArr;//paginig 10 at a time
 imagesArrLoad;
 NumofPages:any;
 NumofPagesLoaded:any;
@@ -33,7 +33,7 @@ display: boolean=true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider,
    public serveImageProv:ImagesProvider) {
-     debugger;
+    
     this.categoryname=navParams.get('categoryName');
     this.categoryId=navParams.get('categoryId');
     //get number of pages
@@ -42,13 +42,13 @@ display: boolean=true;
     this.NumofPages=10;
     this.currentPage=1;//always begin with 1 page!
     // enter the current images in this page
-   // this.getimages();
-  this.ArrayPage();
+    this.getimages();
+    
+ // this.ArrayPage();
   }
 
 ArrayPage() {
     //to display on the bottom the current page & prev- next
-    debugger;
   if(this.currentPage+4 < this.NumofPages)//need to change the array value
  {
   for (let index = this.currentPage+1,i=0; index <= this.currentPage+4 && index<=this.NumofPages; index++,i++) {
@@ -62,7 +62,6 @@ ArrayPage() {
       this.display=false;
     }
   } 
-  debugger;
 //   if(this.NumofPages-4 <= this.currentPage)
 //     this.display=false;
 //  else{
@@ -108,11 +107,10 @@ checkIfNumPageInArray() {
 
   async getnumpages() {
     var x = await this.resolveAfter4SecondsNumPages();
-    debugger;
     this.NumofPages = this.NumofPagesLoaded+1;
     //cancel after
     this.NumofPages=10;
-    this.ArrayPage();//the numbers pages
+  //  this.ArrayPage();//the numbers pages
   }
 
   resolveAfter4Secondsimages() {
@@ -121,6 +119,8 @@ checkIfNumPageInArray() {
         resolve(
           this.serveImageProv.getTenImagesByCategory(this.categoryId,this.currentPage-1).then(data => {
             this.imagesArrLoad = data;
+            console.log(this.imagesArrLoad);
+
             console.log(this.NumofPages);
           })
         );
@@ -130,8 +130,13 @@ checkIfNumPageInArray() {
 
   async getimages() {
     var x = await this.resolveAfter4Secondsimages();
-    this.imagesArr = this.imagesArrLoad;
-  }
+  
+    // this.imagesArr = JSON.stringify(this.imagesArrLoad);
+     this.imagesArr = this.imagesArrLoad;
+
+    
+   
+    }
 
 GetImagesPage(NumPage:number){
     //we put in the numpage index of page!!
@@ -146,16 +151,16 @@ GetImagesPage(NumPage:number){
 //     this.GetImagesPage(this.currentPage);
 //   }
  nextPage(cur:number){
-   debugger;
+  
   this.currentPage=cur;
   this.GetImagesPage(this.currentPage);
-  this.ArrayPage();
+  //this.ArrayPage();
   }
 
   navtoimage(event,item:imageWithObject){//send image id to image page and opens the page
-    debugger;
+    
     //item=//we need category name
-    this.navCtrl.push(ImagePage,{idimage:item.COMimage.ImageID,categoryId:this.categoryId}); 
+     this.navCtrl.push(ImagePage,{idimage:item.image.ImageID,categoryId:this.categoryId}); 
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryimagesPage');

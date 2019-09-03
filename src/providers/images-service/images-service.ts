@@ -17,10 +17,12 @@ imagesArr:any;
     console.log('Hello ImagesProvider Provider');
   }
   getTenImagesByCategory(categoryId:number,numpage:number): any {
-    return this.http.get("http://localhost:60928/api/Images/"+categoryId+"?time="+numpage)
+    return this.http.get("http://localhost:52093/api/Images/"+categoryId+"?time="+numpage)
     .toPromise().then(
       res => { 
+        
         this.imagesArr=res;
+        console.log(res);
         return res; })
       .catch(err => { return false;})
   

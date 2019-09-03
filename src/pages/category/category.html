@@ -18,16 +18,17 @@
      <ion-col>
 
         <div *ngFor="let item of items" class="imgTxt">
-            <ion-card class="Mycategory"> 
-              <ion-img   [src]=item.ImageURL (click)='itemTapped($event,item)' class="displayimg"> </ion-img>
-              <div class="displaytxt">{{item.CategoryName}}</div>
-            </ion-card>
-            </div>
-        
-            <ion-card class="MyPix"> 
+            
+              <!-- <ion-img  [src]=item.ImageURL (click)='itemTapped($event,item)' class="displayimg"> {{item.CategoryName}}</ion-img> -->
+              <!-- <div class="displaytxt">{{item.CategoryName}}</div>         -->
+            
+              <figure>
+                <img  [src]="item.ImageURL"
+                     [alt]="item.CategoryName"  (click)='itemTapped($event,item)'>
+                <figcaption></figcaption>
+            </figure>
+          </div>
               <ion-icon name="add" class ="displayimgs"></ion-icon>
-            </ion-card>
-
      </ion-col>
    </ion-row>
  </ion-grid>

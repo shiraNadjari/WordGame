@@ -16,7 +16,8 @@
 </div>
 
 <div *ngFor="let item of imagesArr">
-    <img  [src]=item.COMimage.URL (click)='navtoimage($event,item)' class="imgsize"> 
+    <img  [src]="item.image.URL" (click)='navtoimage($event,item)' class="imgsize"> 
+  
     <!-- <b>{{item.catName}}</b> -->
 </div>
 <!-- <button ion-button color="light" size="small" >{{currentPage}}</button>
