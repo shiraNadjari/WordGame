@@ -30,9 +30,9 @@
 
  <ion-grid no-padding class="home-gallery" style="position: absolute">
   <ion-row >
-    <ion-col col-4 *ngFor="let item of items" class="imgTxt">
+    <ion-col col-4 *ngFor="let item of items" class="imgTxt">  
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
-        <a (click)='itemTapped($event,item)' href="javascript:void(0);" style="align-self: center;background-image: 'item.ImageURL'">{{item.CategoryName}} <img [src]="item.ImageURL"> </a><br>
+        <a (click)='itemTapped($event,item)' href="javascript:void(0);" style="align-self: center;" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br>
 
     </ion-col>
   </ion-row>
