@@ -9,9 +9,10 @@ export class imageObject{
     X4: number;
     Y3: number;
     Y4: number;
+    VoiceURL:string;
     ImageID: number;
 
-    constructor(id:number,n:string,x1:number,x2:number,y1:number,y2:number,x3:number,x4:number,y3:number,y4:number,imageid:number){
+    constructor(id:number,n:string,x1:number,x2:number,y1:number,y2:number,x3:number,x4:number,y3:number,y4:number,imageid:number,voice:string){
         this.ObjectId=id;
         this.Name=n;
         this.X1=x1;
@@ -23,5 +24,6 @@ export class imageObject{
         this.Y3=y3;
         this.Y4=y4;
         this.ImageID=imageid;
+        this.VoiceURL=voice;
     }
 }

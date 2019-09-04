@@ -119,6 +119,7 @@ x:number;
 y:number;
 elementinfo:any;
 b:any; 
+NameObject=" ";
 findobject(){
 for (let index = 0; index < this.img.imageObjects.length; index++) {
   const OneObject = this.img.imageObjects[index]; 
@@ -133,8 +134,7 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
     {
       //this.messagebox(OneObject.Name);
       console.log(OneObject.Name);
-      //TextToSpeach
-     // this.playobject();
+     this.NameObject=OneObject.Name;
     }
     this.x*=this.imagewidth;
   this.y*=this.imageheight;
