@@ -14,10 +14,10 @@ export class category {
 }
 
 export const categories: category[] = [
-    new category( "food", 1, "https://www.rami-levy.co.il/files/products/big/97.jpg"),
-    new category( "animals", 2, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
-    new category( "clothes",3, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
-    new category( "weather",4, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
-    new category( "weather",5, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
-    new category( "weather",6, "shorturl.at/doEJ4")
+    // new category( "food", 1, "https://www.rami-levy.co.il/files/products/big/97.jpg"),
+    // new category( "animals", 2, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
+    // new category( "clothes",3, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
+    // new category( "weather",4, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
+    // new category( "weather",5, "https://www.iritsadan.com/wp-content/uploads/veg-630x450.jpg"),
+    // new category( "weather",6, "shorturl.at/doEJ4")
 ];
