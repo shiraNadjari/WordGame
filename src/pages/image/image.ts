@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
 import{imageWithObject}from'../../app/classes/imageWithObject';
 import{ImagesProvider}from '../../providers/images-service/images-service';
-import { NativeAudio } from '@ionic-native/native-audio';
+
 import { imageObject } from '../../app/classes/Object';
 // import{}from '../../voice/horse.mp3'
 /**
@@ -35,7 +35,7 @@ xScreen:number;
   imagewidth: any;
   imageheight: any;
   
-  constructor(private alertCtrl: AlertController,private audio:NativeAudio, public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider,platform:Platform) {
+  constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,servImage:ImagesProvider,platform:Platform) {
     
     this.categoryId=navParams.get('categoryId');
     this.ind=navParams.get('idimage');//started with 0 gets the image id
@@ -57,35 +57,7 @@ xScreen:number;
      this.widthscreen=platform.width();
     
   }
-playobject()
-{
-  //MyObj.filevoice.mp3  MyObj:imageObject
-  debugger;
-  // "C:\Users\User\Downloads\horse.mp3"
-  this.audio.preloadSimple('uniqueId1', '../../voice/horse.mp3').
-  then(function(){
-    console.log("audio loded!!");},function(err){
-      debugger;
-      console.log("failed!!!!  "+err);
-    });
-  this.audio.preloadComplex('uniqueId1', '../../voice/horse.mp3',1,1,0).
-  then(function(){
-    console.log("audio loded!!");},function(err){
-      debugger;
-      console.log("failed!!!!  "+err);
-    });
-  //   this.onSuccess, this.onError);
-  // // console.log(Error);
-  // // this.audio.preloadSimple('uniqueId1', 'path/to/file.mp3').then(onSuccess, onError);
-  // this.audio.play('uniqueId1').then(this.onSuccess, this.onError);
 
-}
-onSuccess() {
-  console.log('success!!!!!! wow!');
-}
-onError(){
-  console.log('faild??!');
-}
   
 goback(){//lets user go back to image before the current image
 
@@ -119,6 +91,7 @@ x:number;
 y:number;
 elementinfo:any;
 b:any; 
+audio:any;
 NameObject=" ";
 findobject(){
 for (let index = 0; index < this.img.imageObjects.length; index++) {
@@ -132,9 +105,12 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
     &&this.x<=OneObject.X3&&this.y<=OneObject.Y3
     &&this.x>=OneObject.X1&&this.y<=OneObject.Y4)
     {
-      //this.messagebox(OneObject.Name);
+      
       console.log(OneObject.Name);
      this.NameObject=OneObject.Name;
+    //  this.initVoice(OneObject.)
+      this.playAudio() 
+     
     }
     this.x*=this.imagewidth;
   this.y*=this.imageheight;
@@ -186,6 +162,33 @@ this.navCtrl.push(CategoryPage,{});
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ImagePage');
+  }
+
+
+
+
+ initVoice(voiceURL:string) {
+    this.audio = new Audio();
+    this.audio.src = voiceURL;
+    this.audio.load();
+    
+  }
+ 
+
+playAudio() { 
+ this.audio.play();
+   this.audio.loop = true;
+}
+
+  stopAudio() {
+    this.audio.pause(); 
+  }
+
+  ngOnDestroy() {
+    if(this.audio) {
+      this.audio.pause();
+      this.audio = null;
+    }
   }
 
 }

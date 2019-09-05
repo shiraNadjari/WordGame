@@ -20,11 +20,12 @@ import{CategoriesServiceProvider}from '../../providers/categories-service/catego
   
 })
 export class CategoryPage {
-
-  items//arr of caterories!
+  empty;
+  items:any=0;//arr of caterories!
   constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
-   
+   debugger;
     //service call to get all categories 
+   // this.presentAlert();
     this.getCategories();
   }
 
@@ -34,6 +35,7 @@ export class CategoryPage {
         resolve(
           this.servCategory.getcategories().then(data => {
             this.items = data;
+            debugger;
             console.log(this.items);
           })
         );
@@ -46,7 +48,7 @@ export class CategoryPage {
       subTitle: '10% of battery remaining',
       buttons: ['Dismiss']
     });
-    alert.present();
+    //alert.present();
   }
   async getCategories() {
     var x = await this.resolveAfter4Seconds();

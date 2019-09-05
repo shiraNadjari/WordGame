@@ -6,18 +6,18 @@
 -->
 <ion-header>
   <ion-navbar>
-      <a class="item item-icon-right"> 
+      <p class="item item-icon-right"> 
         <ion-icon name="home" class="iconhome" (click)="goHome($event)"></ion-icon>
-      </a>
+      </p>
     <ion-title>image</ion-title>
     
   </ion-navbar>
   
 </ion-header>
 
-<ion-content padding class="ImagePage">
+<ion-content padding class="general">
 
-<ion-icon *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
+<ion-icon style="margin-left:15% " *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
 <img *ngIf="img" id="image" [src]=img.image.URL class="imgcss" (click)="findclickcoordinants($event)"/>
 
 <!-- <ion-icon name="heart"></ion-icon>-->

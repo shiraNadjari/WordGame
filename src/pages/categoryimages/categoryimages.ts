@@ -22,7 +22,7 @@ export class CategoryimagesPage {
 categoryId: any;
 categoryname:any;
 last:boolean=true;
-imagesArr;//paginig 10 at a time
+imagesArr:any=0;//paginig 10 at a time
 imagesArrLoad;
 NumofPages:any;
 NumofPagesLoaded:any;
@@ -114,6 +114,7 @@ checkIfNumPageInArray() {
   }
 
   resolveAfter4Secondsimages() {
+    this.imagesArr=0;
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(
@@ -158,7 +159,7 @@ GetImagesPage(NumPage:number){
   }
 
   navtoimage(event,item:imageWithObject){//send image id to image page and opens the page
-    
+    debugger;
     //item=//we need category name
      this.navCtrl.push(ImagePage,{idimage:item.image.ImageID,categoryId:this.categoryId}); 
  }

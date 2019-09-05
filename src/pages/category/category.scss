@@ -1,6 +1,10 @@
-// page-category {
+.general {
+    background-color: rgb(235, 183, 14);
+}
 
-// }
+.body{
+    background-color: rgb(235, 183, 14);
+}
 .imgTxt{
 // size: 1000px;
 width: 150;
@@ -33,4 +37,85 @@ text-align: center;
 }
 .MyPix{
     position: relative;
+}
+
+
+
+
+
+
+
+.ion-page{
+    // background: url(../../assets/ll.jpg) no-repeat fixed center; 
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // background-size: cover;
+    background-color:  rgb(241, 198, 7);
+}
+
+ .body {
+     background-color:  rgb(241, 198, 7);
+    // background-image: url(C:\Users\ריקי\Desktop\new\project\src\assets\ll.jpg)
+ }
+ .tabs {
+    background-color:  rgb(241, 198, 7);
+   // background-image: url(C:\Users\ריקי\Desktop\new\project\src\assets\ll.jpg)
+}
+// <ion-content padding class="spinnerCenter">
+//     <ion-spinner name="crescent"></ion-spinner>
+// </ion-content>
+
+
+            
+.spinnerCenter {
+    //display: flex;
+   // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    height: 50%;
+
+    padding-left: 10%;
+    margin-left: 45%;
+}
+
+a {
+    //background:url(../../assets/ll.jpg);
+    
+    background-size: 150%;
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgb(241, 198, 7);
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 700;
+    font-size: 3em;
+    //display: block;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgb(241, 7, 97), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgb(241, 7, 97), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 3px 3px 0px rgb(241, 7, 97), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 100px auto;
+    width: 160px;
+    height: 160px;  //
+    
+    display: inline-flex;
+    align-items: center;
+    padding: 15px;
+
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+a:active {
+    -webkit-box-shadow: 0px 3px 0px rgb(241, 7, 97), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgb(241, 7, 97), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgb(241, 7, 97), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
 }

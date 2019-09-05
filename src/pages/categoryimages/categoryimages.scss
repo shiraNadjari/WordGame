@@ -1,6 +1,9 @@
-// page-categoryimages {
-
-// }
+page-categoryimages {
+    background-color: rgb(235, 183, 14);
+}
+.general {
+    background-color: rgb(235, 183, 14);
+}
 .imgsize{
     height: 100px;
     width: 100px;
@@ -20,4 +23,12 @@ button{
     display: inline-block;
     // color: pink;
 }
+body{
+    background-color: rgb(235, 183, 14);
+}
+.toolbar-background {
+    background-color:rgb(235, 183, 14);
+    border-style: outset;
+    //border-color: black;
+  }
 

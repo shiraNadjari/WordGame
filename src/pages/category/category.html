@@ -4,41 +4,50 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header >
   <ion-navbar>
-    <ion-title>category</ion-title>
+    <ion-title class="general">category</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
+<ion-content padding class="general">
 
 
- <ion-grid>
-   <ion-row>
-     <ion-col>
-
-        <!-- <div *ngFor="let item of items" > -->
             
-              <ion-img  [src]="item.ImageURL" (click)='itemTapped($event,item)' class="displayimg"> {{item.CategoryName}}</ion-img> -->
-              <div class="displaytxt">{{item.CategoryName}}</div>        
-               <ion-list class="imgTxt"> 
+         <!-- <ion-img  [src]="item.ImageURL" (click)='itemTapped($event,item)' class="displayimg"> {{item.CategoryName}}</ion-img> --> 
+              <!-- <div class="displaytxt">{{item.CategoryName}}</div>         -->
+          <!-- <ion-list class="imgTxt"> 
                 <ion-item *ngFor="let item of items" > 
                   <ion-thumbnail slot="start">
                     <ion-img [src]="item.ImageURL"></ion-img>
                   </ion-thumbnail>
                   <ion-label>{{item.CategoryName}}</ion-label>
                 </ion-item>
-          </ion-list> 
+          </ion-list>  -->
       
               <!-- <img  [src]="item.ImageURL"
                      [alt]="item.CategoryName"  (click)='itemTapped($event,item)'> -->
             
-           
-         <!-- </div>  --> 
-              <ion-icon name="add" class ="displayimgs"></ion-icon>
-     </ion-col>
-   </ion-row>
- </ion-grid>
+              <!-- <figure>
+                <img  [src]="item.ImageURL"
+                     [alt]="item.CategoryName"  (click)='itemTapped($event,item)'>
+                <figcaption></figcaption>
+            </figure> -->
+
+            <!-- <ion-spinner name="crescent"></ion-spinner> -->
+<p *ngIf="items == 0" style="font-size: 400%;text-align: center">please wait...</p>
+<ion-spinner class="spinnerCenter" name="crescent" *ngIf="items == 0"></ion-spinner>
+
+
+ <ion-grid no-padding class="home-gallery" style="position: absolute">
+  <ion-row >
+    <ion-col col-4 *ngFor="let item of items" class="imgTxt">  
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+        <a (click)='itemTapped($event,item)' href="javascript:void(0);" style="align-self: center;" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
    
     <!-- <div *ngFor="let item of items" class="imgTxt">
     <ion-card class="Mycategory"> 
