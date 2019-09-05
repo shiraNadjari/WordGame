@@ -25,7 +25,6 @@ export class CategoryPage {
   constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
    
     //service call to get all categories 
-    this.presentAlert();
     this.getCategories();
   }
 

@@ -17,7 +17,7 @@ imagesArr:any;
     console.log('Hello ImagesProvider Provider');
   }
   getTenImagesByCategory(categoryId:number,numpage:number): any {
-    return this.http.get("http://localhost:52093/api/Images/"+categoryId+"?time="+numpage)
+    return this.http.get("http://fdb36141.ngrok.io/api/Images/"+categoryId+"?time="+numpage)
     .toPromise().then(
       res => { 
         

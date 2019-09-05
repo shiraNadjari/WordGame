@@ -2,7 +2,7 @@ import {CategoryPage}from'../../pages/category/category';
 import { Component } from '@angular/core';
 
 import {AlertController, IonicPage, NavController, NavParams ,Platform} from 'ionic-angular';
-import{imageWithObject, arrobj, oneImageObj}from'../../app/classes/imageWithObject';
+import{imageWithObject}from'../../app/classes/imageWithObject';
 import{ImagesProvider}from '../../providers/images-service/images-service';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { imageObject } from '../../app/classes/Object';

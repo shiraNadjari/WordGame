@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{images, image}from'../../app/classes/image';
-import{arrobj, imageWithObject}from'../../app/classes/imageWithObject';
+import{imageWithObject}from'../../app/classes/imageWithObject';
 import{ImagePage}from'../image/image';
 import { CategoriesServiceProvider } from '../../providers/categories-service/categories-service';
 import { ImagesProvider } from '../../providers/images-service/images-service';
