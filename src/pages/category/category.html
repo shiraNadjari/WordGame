@@ -11,9 +11,6 @@
 </ion-header> -->
 
 <ion-content padding class="general">
-
-
-            
          <!-- <ion-img  [src]="item.ImageURL" (click)='itemTapped($event,item)' class="displayimg"> {{item.CategoryName}}</ion-img> --> 
               <!-- <div class="displaytxt">{{item.CategoryName}}</div>         -->
           <!-- <ion-list class="imgTxt"> 
@@ -33,8 +30,8 @@
                      [alt]="item.CategoryName"  (click)='itemTapped($event,item)'>
                 <figcaption></figcaption>
             </figure> -->
-
             <!-- <ion-spinner name="crescent"></ion-spinner> -->
+            <!-- /////////////// -->
 <p *ngIf="items == 0" style="font-size: 400%;text-align: center">please wait...</p>
 <ion-spinner class="spinnerCenter" name="crescent" *ngIf="items == 0"></ion-spinner>
 
@@ -60,5 +57,22 @@
       <ion-icon name="add" class ="displayimgs"></ion-icon>
     </ion-card>
  -->
+<div *ngIf = "arrPages" >
 
+<p *ngIf ="currentPage!=1"> <ion-icon (click)="goToNextPrevPage(currentPage-1)" name="arrow-dropleft"> </ion-icon></p>
+
+<p *ngIf ="currentPage!= 1">1</p>
+<p *ngIf ="currentPage!= 1 && currentPage !=2">...</p>
+<p  class="currentBold" > {{currentPage}}</p>
+<p *ngFor =" let item of arrPages "> {{item}} </p>
+<!-- <div *ngIf="item!=0"> {{item}}</div> -->
+
+<p *ngIf ="arrPages[3]!= numOfPages && arrPages[3]!= numOfPages-1 && arrPages[3]!=0">...</p>
+<p *ngIf ="arrPages[3]!= numOfPages &&  arrPages[3]!=0"> {{numOfPages}}   </p>
+
+<p *ngIf ="currentPage!=numOfPages"> <ion-icon (click)="goToNextPrevPage(currentPage+1)" name="arrow-dropright"> 
+  </ion-icon>
+</p>
+
+</div>
 </ion-content>

@@ -117,7 +117,6 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
 } 
 }
 findclickcoordinants(event){
-
   console.log;
   this.x=event.clientX;//the click position that the user  made-x
   this.y=event.clientY;//" y
