@@ -1,0 +1,19 @@
+<!--
+  Generated template for the UsergalaryPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>usergalary</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+    <div (click)="OpenMyCamera()">Camera</div><br>
+    <div (click)="OpenMyGalary()">MyGalary</div>
+    <img *ngIf="img" id="image" [src]='img' class="imgGalary" (click)="OpenMyGalary($event)"/>
+    <div (click)="sendIngToVision()">Send my image to vision detect</div><br>
+
+</ion-content>

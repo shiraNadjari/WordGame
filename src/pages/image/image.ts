@@ -58,24 +58,6 @@ xScreen:number;
     
   }
 
-  
-goback(){//lets user go back to image before the current image
-
-  debugger;
- 
-  if(this.ind==0){
-    this.arrowb=false;
-    this.arrowf=true;
-    //iocon prev page service call
-  }
-  else{
-    this.arrowb=true;
-    this.arrowf=true;
-
-  }
-  this.counter--;
- this.img=this.images[this.counter];
-}
 messagebox(nameobject:string)
 {
   
@@ -136,9 +118,23 @@ this.findobject();
 
 }
 
+goback(){//lets user go back to image before the current image
+  debugger;
+  if(this.ind==0){
+    this.arrowb=false;
+    this.arrowf=true;
+    //iocon prev page service call
+  }
+  else{
+    this.arrowb=true;
+    this.arrowf=true;
+
+  }
+  this.counter--;
+ this.img=this.images[this.counter];
+}
 goforward(){// lets user go forward to next image from image array
   debugger;
- 
   if(this.ind==this.images.length-1){
     this.arrowf=false;
     this.arrowb=true;
@@ -156,33 +152,24 @@ goforward(){// lets user go forward to next image from image array
 goHome(event){//go to home page where u can choose again a category and start to play again...............
 debugger;
 this.x=event.clientX;
-  this.y=event.clientY;
+this.y=event.clientY;
 this.navCtrl.push(CategoryPage,{});
 }
-  ionViewDidLoad() {
+ionViewDidLoad() {
     console.log('ionViewDidLoad ImagePage');
-  }
-
-
-
-
+}
  initVoice(voiceURL:string) {
     this.audio = new Audio();
     this.audio.src = voiceURL;
     this.audio.load();
-    
   }
- 
-
 playAudio() { 
  this.audio.play();
    this.audio.loop = true;
 }
-
   stopAudio() {
     this.audio.pause(); 
   }
-
   ngOnDestroy() {
     if(this.audio) {
       this.audio.pause();

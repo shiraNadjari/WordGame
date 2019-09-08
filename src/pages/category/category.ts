@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, Img } from 'ionic-angular';
 import { CategoryimagesPage} from '../categoryimages/categoryimages';
 
 import { category,categories } from '../../app/classes/category';
 import{CategoriesServiceProvider}from '../../providers/categories-service/categories-service';
+import { UsergalaryPage } from '../usergalary/usergalary';
 
 
 /**
@@ -30,26 +31,14 @@ export class CategoryPage {
     //service call to get all categories 
    // this.presentAlert();
     this.getCategories();
-    this.toolbarPages();
   }
-toolbarPages()
-{
-//  debugger;
-  for (let i = 0; i < 4; i++) {// initilize the page array to zero
-    this.arrPages[i]=0;
+  userId:any;
+  gotopageusergalary(event){
+    debugger;
+    this.userId=12;
+    // this.userId=
+    this.navCtrl.push(UsergalaryPage,{userId:this.userId}); 
   }
-  for (let i = 1; i < 5 && this.currentPage+i<=this.numOfPages ; i++) {//fill in the array with the current page and the 4 pages after it.
-    this.arrPages[i-1]=this.currentPage+i;
-  }
-  for (let j = 0; j < 4; j++) {
-    if(this.arrPages[j]==0)
-      this.arrPages[j]="";
-  }
-}
- goToNextPrevPage(current : number){// change current page when next page clicked
-    this.currentPage=current;
-    this.toolbarPages();
- }
   resolveAfter4Seconds() {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -79,8 +68,8 @@ toolbarPages()
     console.log('ionViewDidLoad CategoryPage');
   }
  itemTapped(event,item:category){
-   
    //item=//we need category name
  this.navCtrl.push(CategoryimagesPage,{categoryName:item.CategoryName,categoryId:item.CategoryId}); 
 }
+
 }

@@ -24,7 +24,7 @@ categoryname:any;
 last:boolean=true;
 imagesArr:any=0;//paginig 10 at a time
 imagesArrLoad;
-NumofPages:any;
+numOfPages:any;
 NumofPagesLoaded:any;
 currentPage:any;
 arrPages=[];
@@ -39,7 +39,7 @@ display: boolean=true;
     //get number of pages
     this.getnumpages();
     //delete...
-    this.NumofPages=10;
+    this.numOfPages=10;
     this.currentPage=1;//always begin with 1 page!
     // enter the current images in this page
     this.getimages();
@@ -47,50 +47,6 @@ display: boolean=true;
  // this.ArrayPage();
   }
 
-ArrayPage() {
-    //to display on the bottom the current page & prev- next
-  if(this.currentPage+4 < this.NumofPages)//need to change the array value
- {
-  for (let index = this.currentPage+1,i=0; index <= this.currentPage+4 && index<=this.NumofPages; index++,i++) {
-    this.arrPages[i]=index;//to display this pages
-
-    if(this.arrPages[i]==this.NumofPages){//checks if to display last number only if last num isn't in the array
-      this.last=false;
-      }
-    if(this.currentPage=this.NumofPages-1)
-    {
-      this.display=false;
-    }
-  } 
-//   if(this.NumofPages-4 <= this.currentPage)
-//     this.display=false;
-//  else{
-    
-    this.displayCurr=true;
-// }
-}
-else{
-  this.display=false;
-  this.displayCurr=false;
-  for (let index = this.NumofPages-4,i=0; index <= this.NumofPages && index<=this.NumofPages; index++,i++) {
-    this.arrPages[i]=index;//to display this pages
-  } 
-}
-this.checkIfNumPageInArray();
-// if(this.currentPage+5=this.NumofPages)
-
-}
-checkIfNumPageInArray() {
-   for (let i = 0; i < this.arrPages.length; i++) {
-     if(this.arrPages[i]==this.NumofPages){
-       this.display=false;
-       if(this.arrPages[i]==this.NumofPages){
-       this.last=false;
-       }
-     }
-     
-   }
-}
   resolveAfter4SecondsNumPages() {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -98,7 +54,7 @@ checkIfNumPageInArray() {
          
           this.servCategory.getNumPageByCategoryId(this.categoryId).then(data => {
             this.NumofPagesLoaded=data;
-            console.log(this.NumofPages);
+            console.log(this.numOfPages);
           })
         );
       },4000);
@@ -107,9 +63,9 @@ checkIfNumPageInArray() {
 
   async getnumpages() {
     var x = await this.resolveAfter4SecondsNumPages();
-    this.NumofPages = this.NumofPagesLoaded+1;
+    this.numOfPages = this.NumofPagesLoaded+1;
     //cancel after
-    this.NumofPages=10;
+    this.numOfPages=10;
   //  this.ArrayPage();//the numbers pages
   }
 
@@ -122,7 +78,7 @@ checkIfNumPageInArray() {
             this.imagesArrLoad = data;
             console.log(this.imagesArrLoad);
 
-            console.log(this.NumofPages);
+            console.log(this.numOfPages);
           })
         );
       }, 4000);
@@ -145,12 +101,27 @@ GetImagesPage(NumPage:number){
     this.imagesArr= this.serveImageProv.getTenImagesByCategory(this.categoryId,NumPage-1,);
     this.imagesArr=this.serveImageProv.imagesArr;
 }
+toolbarPages()
+{
+//  debugger;
+  for (let i = 0; i < 4; i++) {// initilize the page array to zero
+    this.arrPages[i]=0;
+  }
+  for (let i = 1; i < 5 && this.currentPage+i<=this.numOfPages ; i++) {//fill in the array with the current page and the 4 pages after it.
+    this.arrPages[i-1]=this.currentPage+i;
+  }
+  for (let j = 0; j < 4; j++) {
+    if(this.arrPages[j]==0)
+      this.arrPages[j]="";
+  }
+}
+ goToNextPrevPage(current : number){// change current page when next page clicked
+    this.currentPage=current;
+    this.toolbarPages();
+    //get new page- ten image - call service
+    this.nextPage(current);
+ }
 
-// prevPage(){
-// this.currentPage=this.currentPage-1;
-// //service call - get the prev page of this category
-//     this.GetImagesPage(this.currentPage);
-//   }
  nextPage(cur:number){
   
   this.currentPage=cur;

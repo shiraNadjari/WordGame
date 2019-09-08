@@ -10,7 +10,7 @@ import { CategoryPage } from '../pages/category/category';
 import { CategoryimagesPage } from '../pages/categoryimages/categoryimages';
 import { NativeAudio } from '@ionic-native/native-audio';
 
-
+import{UsergalaryPage}from'../pages/usergalary/usergalary';
 import { ImagePage } from'../pages/image/image';
 import { ImagesProvider } from '../providers/images-service/images-service';
 import { CategoriesServiceProvider }from '../providers/categories-service/categories-service';
@@ -20,7 +20,8 @@ import { CategoriesServiceProvider }from '../providers/categories-service/catego
   declarations: [
     MyApp,
     HomePage,CategoryPage
-    ,CategoryimagesPage,ImagePage
+    ,CategoryimagesPage,ImagePage,
+    UsergalaryPage
   ],
   imports: [
     BrowserModule,
@@ -33,14 +34,14 @@ import { CategoriesServiceProvider }from '../providers/categories-service/catego
     HomePage,
     CategoryPage,
     CategoryimagesPage,
-    ImagePage
+    ImagePage,
+    UsergalaryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-
     ImagesProvider,
     CategoriesServiceProvider
   ]

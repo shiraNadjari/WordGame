@@ -32,6 +32,8 @@
             </figure> -->
             <!-- <ion-spinner name="crescent"></ion-spinner> -->
             <!-- /////////////// -->
+
+
 <p *ngIf="items == 0" style="font-size: 400%;text-align: center">please wait...</p>
 <ion-spinner class="spinnerCenter" name="crescent" *ngIf="items == 0"></ion-spinner>
 
@@ -45,7 +47,14 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-   
+  <!-- איך מעצבים כמו שאר הכפתורים???????? -->
+  <!-- <link  rel='stylesheet' type='text/css'>
+  <a (click)='gotopageusergalary($event,item)' href="javascript:void(0);"  style="align-self: center;" >+</a> -->
+
+<div (click)="gotopageusergalary($event)" rel='stylesheet' type='text/css' href="javascript:void(0);"  style="align-self: center;"> +  </div>
+
+   <!-- /////////////////////////////////////////// -->
+
     <!-- <div *ngFor="let item of items" class="imgTxt">
     <ion-card class="Mycategory"> 
       <ion-img   [src]=item.ImageURL (click)='itemTapped($event,item)' class="displayimg"> </ion-img>
@@ -57,22 +66,4 @@
       <ion-icon name="add" class ="displayimgs"></ion-icon>
     </ion-card>
  -->
-<div *ngIf = "arrPages" >
-
-<p *ngIf ="currentPage!=1"> <ion-icon (click)="goToNextPrevPage(currentPage-1)" name="arrow-dropleft"> </ion-icon></p>
-
-<p *ngIf ="currentPage!= 1">1</p>
-<p *ngIf ="currentPage!= 1 && currentPage !=2">...</p>
-<p  class="currentBold" > {{currentPage}}</p>
-<p *ngFor =" let item of arrPages "> {{item}} </p>
-<!-- <div *ngIf="item!=0"> {{item}}</div> -->
-
-<p *ngIf ="arrPages[3]!= numOfPages && arrPages[3]!= numOfPages-1 && arrPages[3]!=0">...</p>
-<p *ngIf ="arrPages[3]!= numOfPages &&  arrPages[3]!=0"> {{numOfPages}}   </p>
-
-<p *ngIf ="currentPage!=numOfPages"> <ion-icon (click)="goToNextPrevPage(currentPage+1)" name="arrow-dropright"> 
-  </ion-icon>
-</p>
-
-</div>
 </ion-content>

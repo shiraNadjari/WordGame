@@ -35,20 +35,20 @@
 <div   style="display: inline">
 <p (click)="nextPage(currentPage-1)" *ngIf="currentPage!=1">prev</p> 
 
-<div *ngIf="arrPages" class="numbersPage">
-  
-  <p *ngIf="currentPage!=1">1</p>
- 
-    <!-- <ion-row style="height: h"></ion-row> -->
-  <p *ngIf="currentPage!=1&&currentPage!=2" >...</p>
-  <!-- <p *ngIf="displayCurr">{{currentPage}}</p> -->
+<!-- class="numbersPage"> -->
+  <div *ngIf = "arrPages"  >
 
-  <!-- <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" [ngClass]="'classCurrent':item==currentPage">item</p> -->
-  <p  *ngFor="let item of arrPages"  (click)="nextPage(item)" >{{item}}</p> 
-  <p *ngIf="display==true&&last==true" >...</p>
-  <p  (click)="nextPage(NumofPages)" *ngIf="last==true">{{NumofPages}}</p>
-</div> 
-
-<p (click)="nextPage(currentPage+1)" *ngIf="currentPage!=NumofPages">next</p>
-</div>
-</ion-content>
+    <p *ngIf ="currentPage!=1"> <ion-icon (click)="goToNextPrevPage(currentPage-1)" name="arrow-dropleft"> </ion-icon></p>
+    <p *ngIf ="currentPage!= 1">1</p>
+    <p *ngIf ="currentPage!= 1 && currentPage !=2">...</p>
+    <p  class="currentBold" > {{currentPage}}</p>
+    <p *ngFor =" let item of arrPages "> {{item}} </p>
+    <!-- <div *ngIf="item!=0"> {{item}}</div> -->
+    
+    <p *ngIf ="arrPages[3]!= numOfPages && arrPages[3]!= numOfPages-1 && arrPages[3]!=0">...</p>
+    <p *ngIf ="arrPages[3]!= numOfPages &&  arrPages[3]!=0"> {{numOfPages}}   </p>
+    
+    <p *ngIf ="currentPage!=numOfPages"> <ion-icon (click)="goToNextPrevPage(currentPage+1)" name="arrow-dropright"> 
+      </ion-icon></p>
+  </div>
+<!-- </ion-content> -->
