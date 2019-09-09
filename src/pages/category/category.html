@@ -33,23 +33,29 @@
             <!-- <ion-spinner name="crescent"></ion-spinner> -->
             <!-- /////////////// -->
 
-
+          
 <p *ngIf="items == 0" style="font-size: 400%;text-align: center">please wait...</p>
 <ion-spinner class="spinnerCenter" name="crescent" *ngIf="items == 0"></ion-spinner>
- <ion-grid no-padding class="home-gallery" style="position: absolute">
-  <ion-row >
-    <ion-col col-4  *ngFor="let item of items" class="imgTxt">  
-        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
-        <a (click)='itemTapped($event,item)' href="javascript:void(0);" style="align-self: center;" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br>
 
-    </ion-col>
-  </ion-row>
+
+ <ion-grid  no-padding class="home-gallery" style="position: absolute">
+  <ion-row   > 
+    <ion-col style="margin-bottom:18%;" col-4 *ngFor="let item of aa" class="imgTxt">  
+      
+      <!-- <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'> -->
+        <!-- <a  (click)='itemTapped($event,item)' href="javascript:void(0);" style="align-self: center;width :90%;margin-left:-10%;height:100%;margin-top:20%;margin-bottom:10%" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br> -->
+         <a  (click)='itemTapped($event,item)' href="javascript:void(0);"  style="align-self: center; width:90%;margin-left:-10%;height:70%" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br> 
+        </ion-col>
+        </ion-row>
+
 </ion-grid>
+
+
   <!-- איך מעצבים כמו שאר הכפתורים???????? -->
   <!-- <link  rel='stylesheet' type='text/css'>
   <a (click)='gotopageusergalary($event,item)' href="javascript:void(0);"  style="align-self: center;" >+</a> -->
 
-<div (click)="gotopageusergalary($event)" rel='stylesheet' type='text/css' href="javascript:void(0);"  style="align-self: center;"> +  </div>
+<!-- <div (click)="gotopageusergalary($event)" rel='stylesheet' type='text/css' href="javascript:void(0);"  style="align-self: center;"> +  </div> -->
 
    <!-- /////////////////////////////////////////// -->
 

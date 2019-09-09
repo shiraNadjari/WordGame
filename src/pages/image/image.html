@@ -19,12 +19,7 @@
 
 <ion-icon style="margin-left:15% " *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
 <!-- <img *ngIf="img" id="image" [src]=img.image.URL class="imgcss" (click)="findclickcoordinants($event)"/> -->
-<div  *ngIf="img" id="image" (click)="findclickcoordinants($event)" [ngStyle]="{'background-image':'url('+ img.image.URL +')'}" style="margin-left: 10%;width: 80%;height: 100%; border-style: dotted;align-self: center;-webkit-background-size: cover;">
+<div (swipe)="($event.direction == 4) ? goback():goforward()" *ngIf="img" id="image" (click)="findclickcoordinants($event)" [ngStyle]="{'background-image':'url('+ img.image.URL +')'}" style="margin-left: 10%;width: 80%;height: 100%; border-style: dotted;align-self: center;-webkit-background-size: cover;">
     <p id="ooo" > {{NameObject}}</p>
 </div>
-
-<!-- <ion-icon name="heart"></ion-icon>-->
-<!-- <button (click)="playobject()">here me!!!</button> -->
-
-<ion-icon *ngIf="arrowf" name="arrow-forward" class="arrow"  (click)="goforward()"></ion-icon>
 </ion-content>

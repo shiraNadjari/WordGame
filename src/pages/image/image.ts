@@ -118,36 +118,29 @@ document.getElementById("ooo").setAttribute("style","margin-left:50%;margin-top:
 this.findobject();
 
 }
-
 goback(){//lets user go back to image before the current image
   debugger;
-  if(this.ind==0){
-    this.arrowb=false;
-    this.arrowf=true;
+  if(this.counter==0){
+    this.img=this.images[this.counter];
     //iocon prev page service call
   }
   else{
-    this.arrowb=true;
-    this.arrowf=true;
-
+    this.counter--;
+     this.img=this.images[this.counter];
   }
-  this.counter--;
- this.img=this.images[this.counter];
+  
 }
 goforward(){// lets user go forward to next image from image array
   debugger;
-  if(this.ind==this.images.length-1){
-    this.arrowf=false;
-    this.arrowb=true;
-    //iocon next page service call
-    
+  if(this.counter==this.images.length-1){
+    this.img=this.images[this.counter];  
+    //iocon next page service call 
   }
-  else{
-    this.arrowb=true;
-    this.arrowf=true;
+  else{ 
+     this.counter++
+     this.img=this.images[this.counter];
   }
-  this.counter++
-  this.img=this.images[this.counter];
+ 
 }
 
 goHome(event){//go to home page where u can choose again a category and start to play again...............
@@ -165,7 +158,7 @@ ionViewDidLoad() {
     this.audio.load();
   }
 playAudio() { 
- this.audio.play();
+//  this.audio.play();
    this.audio.loop = true;
 }
   stopAudio() {
