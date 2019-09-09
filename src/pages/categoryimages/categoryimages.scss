@@ -1,6 +1,16 @@
 page-categoryimages {
     background-color: rgb(235, 183, 14);
 }
+.row{
+    height: -webkit-fill-available;
+}
+.scroll-content{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+element.style{
+    height: -webkit-fill-available;
+}
 .general {
     background-color: rgb(235, 183, 14);
 }

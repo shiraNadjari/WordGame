@@ -11,9 +11,6 @@
 </ion-header>
 
 <ion-content no-padding  class="general">
-<div >
-
-</div>
 
 <!-- <div *ngFor="let item of imagesArr">
     <img  [src]="item.image.URL" (click)='navtoimage($event,item)' class="imgsize"> 
@@ -22,10 +19,12 @@
 <p *ngIf="imagesArr == 0" style="font-size: 400%;text-align: center">please wait...</p>
 <ion-spinner class="spinnerCenter" name="crescent" *ngIf="imagesArr == 0"></ion-spinner>
 
-<ion-grid no-padding class="home-gallery" style="margin-top: 1%">
-    <ion-row >
-      <ion-col col-3 *ngFor="let item of imagesArr" class="imgTxt">
-          <img style="width: 70%;height: 80%;"  [src]="item.image.URL" (click)='navtoimage($event,item)' class="imgsize"> 
+<ion-grid no-padding class="home-gallery" style="margin-top: 1%;height: -webkit-full-available">
+    <ion-row style="height: -webkit-full-available;margin-left: 5%;margin-bottom: 0%" >
+      <ion-col col-3 *ngFor="let item of imagesArr" class="imgTxt" style="height: -webkit-full-available">
+          <div (click)='navtoimage($event,item)' [ngStyle]="{'background-image':'url('+ item.image.URL +')'}" style="padding-right: 1%;padding-left: 1%;width: 80%;height: 80%; border-style: dotted;align-self: center;margin-top: 5%;-webkit-background-size: cover;"></div>
+          <!-- <img style="width: 70%;height: 80%;opacity: 100%;"  [src]="item.image.URL" (click)='navtoimage($event,item)' class="imgsize">  -->
+          <!-- <img class="imgsize" style="width: 70%;height: 80%;"></img> -->
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -36,7 +35,7 @@
 <p (click)="nextPage(currentPage-1)" *ngIf="currentPage!=1">prev</p> 
 
 <!-- class="numbersPage"> -->
-  <div *ngIf = "arrPages"  >
+  <div *ngIf = "arrPages"  style="">
 
     <p *ngIf ="currentPage!=1"> <ion-icon (click)="goToNextPrevPage(currentPage-1)" name="arrow-dropleft"> </ion-icon></p>
     <p *ngIf ="currentPage!= 1">1</p>

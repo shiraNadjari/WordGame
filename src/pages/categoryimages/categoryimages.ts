@@ -57,7 +57,7 @@ display: boolean=true;
             console.log(this.numOfPages);
           })
         );
-      },4000);
+      },250);
     });
   }
 
@@ -81,7 +81,7 @@ display: boolean=true;
             console.log(this.numOfPages);
           })
         );
-      }, 4000);
+      }, 250);
     });
   }
 

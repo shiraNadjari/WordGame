@@ -91,7 +91,7 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
       console.log(OneObject.Name);
      this.NameObject=OneObject.Name;
     //  this.initVoice(OneObject.)
-      this.playAudio() 
+      //this.playAudio() 
      
     }
     this.x*=this.imagewidth;
@@ -114,6 +114,7 @@ this.x=this.x-this.elementinfo.left;
 
 this.imagewidth=this.elementinfo.width;
 this.imageheight=this.elementinfo.height;
+document.getElementById("ooo").setAttribute("style","margin-left:50%;margin-top:25%;color:blue;font-size:250%");
 this.findobject();
 
 }

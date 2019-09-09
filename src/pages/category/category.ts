@@ -49,7 +49,7 @@ export class CategoryPage {
             console.log(this.items);
           })
         );
-      }, 4000);
+      }, 250);
     });
   }
   presentAlert() {
