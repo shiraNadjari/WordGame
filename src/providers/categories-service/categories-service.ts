@@ -24,7 +24,7 @@ cateroriesArr:any;
   // get all the categories 
   getcategories(): any {
 
-    return this.http.get("http://5d638c4c.ngrok.io/api/Categories/")
+    return this.http.get("http://f0348fe2.ngrok.io/api/Categories/")
     .toPromise().then(
       res => { 
         this.cateroriesArr=res;

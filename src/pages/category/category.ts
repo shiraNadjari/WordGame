@@ -25,16 +25,18 @@ export class CategoryPage {
   currentPage = 1;
   numOfPages = 10 ;
   empty;
-  items:any=0;//arr of caterories!
+  numrow;
+  items:any[]=null;//arr of caterories!
+  items2:any[];
+  aa;
   constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public servCategory:CategoriesServiceProvider) {
-   debugger;
+  
     //service call to get all categories 
    // this.presentAlert();
     this.getCategories();
   }
   userId:any;
   gotopageusergalary(event){
-    debugger;
     this.userId=12;
     // this.userId=
     this.navCtrl.push(UsergalaryPage,{userId:this.userId}); 
@@ -45,11 +47,11 @@ export class CategoryPage {
         resolve(
           this.servCategory.getcategories().then(data => {
             this.items = data;
-            debugger;
+            
             console.log(this.items);
           })
         );
-      }, 4000);
+      }, 250);
     });
   }
   presentAlert() {
@@ -61,8 +63,13 @@ export class CategoryPage {
     //alert.present();
   }
   async getCategories() {
+    debugger;
     var x = await this.resolveAfter4Seconds();
     this.items = this.items;
+    this.items2=this.items;
+    debugger;
+    this.aa=this.items2.concat(this.items);
+    debugger;
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryPage');
