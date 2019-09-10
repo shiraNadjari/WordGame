@@ -5,8 +5,8 @@ page-categoryimages {
     height: -webkit-fill-available;
 }
 .scroll-content{
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 element.style{
     height: -webkit-fill-available;

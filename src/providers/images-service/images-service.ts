@@ -16,8 +16,8 @@ imagesArr:any;
   constructor(public http: HttpClient) {
     console.log('Hello ImagesProvider Provider');
   }
-  getTenImagesByCategory(categoryId:number,numpage:number): any {
-    return this.http.get("http://53e45410.ngrok.io/api/Images/"+categoryId+"?time="+numpage)
+  getTwelveImagesByCategory(categoryId:number,numpage:number): any {
+    return this.http.get("http://localhost:52093/api/Images/"+categoryId+"?time="+numpage)
     .toPromise().then(
       res => {  
         

@@ -19,7 +19,9 @@
 
 <ion-icon style="margin-left:15% " *ngIf="arrowb" name="arrow-back" class="arrow" (click)="goback()" ></ion-icon >
 <!-- <img *ngIf="img" id="image" [src]=img.image.URL class="imgcss" (click)="findclickcoordinants($event)"/> -->
-<div (swipe)="($event.direction == 4) ? goback():goforward()" *ngIf="img" id="image" (click)="findclickcoordinants($event)" [ngStyle]="{'background-image':'url('+ img.image.URL +')'}" style="margin-left: 10%;width: 80%;height: 100%;align-self: center;-webkit-background-size: cover;">
+<div (swipe)="($event.direction == 4) ? goback():goforward()" *ngIf="img" id="image" (click)="findclickcoordinants($event)" [ngStyle]="{'background-image':'url('+ img.image.URL +')'}" style="margin-left:20%;height: 100%;padding-top: 1%;width: 60%;align-self: center;-webkit-background-size:cover">
     <p id="ooo" > {{NameObject}}</p>
 </div>
 </ion-content>
+<!-- margin-left: 10%; -->
+<!-- width: 80%; -->

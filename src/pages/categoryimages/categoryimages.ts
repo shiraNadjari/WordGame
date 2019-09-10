@@ -74,7 +74,7 @@ display: boolean=true;
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(
-          this.serveImageProv.getTenImagesByCategory(this.categoryId,this.currentPage-1).then(data => {
+          this.serveImageProv.getTwelveImagesByCategory(this.categoryId,this.currentPage-1).then(data => {
             this.imagesArrLoad = data;
             console.log(this.imagesArrLoad);
 
@@ -98,7 +98,7 @@ display: boolean=true;
 GetImagesPage(NumPage:number){
     //we put in the numpage index of page!!
     //this service call return 10 images in this page,we put it in the array
-    this.imagesArr= this.serveImageProv.getTenImagesByCategory(this.categoryId,NumPage-1,);
+    this.imagesArr= this.serveImageProv.getTwelveImagesByCategory(this.categoryId,NumPage-1,);
     this.imagesArr=this.serveImageProv.imagesArr;
 }
 toolbarPages()
