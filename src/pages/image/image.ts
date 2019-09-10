@@ -87,11 +87,11 @@ for (let index = 0; index < this.img.imageObjects.length; index++) {
     &&this.x<=OneObject.X3&&this.y<=OneObject.Y3
     &&this.x>=OneObject.X1&&this.y<=OneObject.Y4)
     {
-      
+      debugger;
       console.log(OneObject.Name);
      this.NameObject=OneObject.Name;
-    //  this.initVoice(OneObject.)
-      //this.playAudio() 
+    this.initVoice(OneObject.VoiceURL)
+      this.playAudio() 
      
     }
     this.x*=this.imagewidth;
@@ -158,8 +158,8 @@ ionViewDidLoad() {
     this.audio.load();
   }
 playAudio() { 
-//  this.audio.play();
-   this.audio.loop = true;
+ this.audio.play();
+   this.audio.loop = false;
 }
   stopAudio() {
     this.audio.pause(); 

@@ -40,11 +40,17 @@
 
  <ion-grid  no-padding class="home-gallery" style="position: absolute">
   <ion-row   > 
-    <ion-col style="margin-bottom:18%;" col-4 *ngFor="let item of aa" class="imgTxt">  
+    <ion-col style="height: -webkit-full-available" col-4 *ngFor="let item of aa" class="imgTxt">  
       
       <!-- <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'> -->
         <!-- <a  (click)='itemTapped($event,item)' href="javascript:void(0);" style="align-self: center;width :90%;margin-left:-10%;height:100%;margin-top:20%;margin-bottom:10%" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br> -->
-         <a  (click)='itemTapped($event,item)' href="javascript:void(0);"  style="align-self: center; width:90%;margin-left:-10%;height:70%" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br> 
+        <!-- style="margin-left: 10%;width: 80%;height: 100%;align-self: center;-webkit-background-size: cover;" -->
+        <!-- <a  (click)='itemTapped($event,item)' href="javascript:void(0);"  style="padding-right: 1%;padding-left: 1%;width: 80%;height: 80%; border-style: dotted;align-self: center;margin-top: 5%;-webkit-background-size: cover;" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br>  -->
+        
+        <div (click)='itemTapped($event,item)' [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}" style="padding-right: 1%;padding-left: 1%;width: 80%;height: 80%; border-style: double;align-self: center;margin-top: 5%;-webkit-background-size: cover;"></div>
+
+        
+        <!-- <a  (click)='itemTapped($event,item)' href="javascript:void(0);"  style="align-self: center; width:90%;margin-left:-10%;height:70%" [ngStyle]="{'background-image':'url('+ item.ImageURL +')'}">{{item.CategoryName}}</a><br>  -->
         </ion-col>
         </ion-row>
 
